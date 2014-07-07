@@ -13,6 +13,7 @@ module Data.Time.Lite.Nano
        , iMul
        , iDiv
        , iMod
+       , iQuotRem
        , fNano
        , nanoDouble
        , nanoDiffTime
@@ -182,6 +183,12 @@ iDiv (Nano a) (Nano b) = fromIntegral $ a `div` b
 iMod :: Nano -> Nano -> Nano
 {-# INLINE iMod #-}
 iMod (Nano a) (Nano b) = Nano $ a `mod` b
+
+iQuotRem :: Integral i => Nano -> Nano -> (i, Nano)
+iQuotRem (Nano a) (Nano b) = (fromIntegral q, Nano r)
+  where
+    (q, r) = a `quotRem` b
+{-# INLINE iQuotRem #-}
 
 infixl 7 `iMul`
 infixl 7 `iDiv`
