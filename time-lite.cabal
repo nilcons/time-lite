@@ -48,4 +48,5 @@ benchmark gettimeofday_bench
     base,
     criterion,
     lens,
+    thyme,
     time
