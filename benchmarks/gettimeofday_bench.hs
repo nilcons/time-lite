@@ -10,11 +10,15 @@ import Data.Time.Clock.POSIX
 import qualified Data.Thyme as Th
 import qualified Data.Thyme.Time as Th
 
+import System.Hourglass
+
 benchmarks :: [Benchmark]
 benchmarks = [
   -- Data.Time
   bench "getCurrentTime" $ nfIO $ getCurrentTime,
   bench "getPOSIXTime" $ nfIO $ getPOSIXTime,
+  -- Hourglass
+  bench "timeCurrentP" $ whnfIO timeCurrentP,
   -- Data.Thyme
   bench "Thyme.getCurrentTime" $ whnfIO $ Th.getCurrentTime,
   bench "Thyme.getCurrentTime compat" $ nfIO $ getCurrentTimeThyme,

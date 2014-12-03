@@ -47,6 +47,7 @@ benchmark gettimeofday_bench
     time-lite,
     base,
     criterion,
+    hourglass,
     lens,
     thyme,
     time
